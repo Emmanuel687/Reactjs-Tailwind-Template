@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import Events from "./components/Events";
 
 function App() {
 
@@ -25,6 +26,8 @@ function App() {
           ))
         }
       </Header>
+
+      <Events />
     </>
   )
 }

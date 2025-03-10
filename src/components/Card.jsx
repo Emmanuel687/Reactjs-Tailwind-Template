@@ -5,6 +5,7 @@ const Card = ({ children ,width}) => {
       <div className="flex justify-center items-center">
         <div className={`bg-white p-8 rounded shadow-md w-[${width}%]`}>
           {children}
+          
         </div>
       </div>
     </>

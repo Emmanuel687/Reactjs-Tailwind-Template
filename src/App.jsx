@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Events from "./components/Events";
 import UseRef from "./components/useRef";
 import Card from "./components/Card";
+import UseEffect from "./components/UseEffect";
 function App() {
 
   const navbarLinks = [{
@@ -22,22 +23,31 @@ function App() {
     <>
 
       <div>
-        <Header>
-          {
-            navbarLinks.map((link, index) => (
-              <a key={index} href={link.link} className="text-gray-300 hover:text-white ">{link.name}</a>
-            ))
-          }
-        </Header>
-        <Card width={100}>
+        {/* <Header>
+        </Header> */}
+
+        {/* Events Start */}
+        {/* <Card width={100}>
           <Events />
-        </Card>
-        <Card width={100}>
+        </Card> */}
+        {/* Events End */}
+
+
+        {/* UseRef Hook Start */}
+        {/* <Card width={100}>
           <div className="mt-10">
-          <UseRef />
+            <UseRef />
 
           </div>
-        </Card>
+        </Card> */}
+        {/* UseRef Hook End */}
+
+        {/* useEffect Hook Start */}
+          <div className="mt-10">
+            <UseEffect />
+          </div>
+        {/* useEffect Hook End */}
+        
       </div>
 
     </>

@@ -1,24 +1,32 @@
-const useFetch = (url)=>{
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+import { useState, useEffect } from "react"
 
-  useEffect(()=>{
-    setLoading(true);
-    setError(null);
-    fetch(url)
-     .then(res=>res.json())
-     .then(data=>{
-        setData(data);
-        setLoading(false);
-      })
-     .catch(error=>{
-        setError(error);
-        setLoading(false);
-      });
-  }, []);
+const useFetch = (url) => {
 
-  return {data, loading, error};
+  // State Variables Start
+  const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  // State Variables End
+
+  // Fetch Data Start
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true)
+        const response = await fetch(url)
+        const json = await response.json()
+        setData(json)
+      } catch (error) {
+        console.error('There has been a problem with your fetch operation:', error);
+      } finally {
+        setIsLoading(false)
+      }
+
+    }
+    fetchData()
+  }, [url]);
+  // Fetch Data End
+  return { data, isLoading };
+
 
 }
 export default useFetch
